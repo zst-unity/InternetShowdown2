@@ -56,11 +56,7 @@
         "temp/": true,
         "Temp/": true
     },
-<<<<<<< HEAD
     "dotnet.defaultSolution": "InternetShowdown2-main.sln",
-=======
-    "dotnet.defaultSolution": "InternetShowdown2.sln",
->>>>>>> b804c25e6c9c56774a81d4ad5e1f9908bbf30e8a
     "cSpell.words": [
         "ARGB",
         "Behaviour",
