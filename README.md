@@ -1,2 +1,2 @@
-# --- INTERNET --- SHOWDOWN --- II ---
+# --- INTERNET SHOWDOWN II ---
 hello
