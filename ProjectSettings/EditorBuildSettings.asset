@@ -11,8 +11,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/Scenes/Lobby.unity
     guid: 1e9a40e0a6f072f48afb41b0c515366a
+<<<<<<< HEAD
   - enabled: 1
     path: Assets/_Project/Scenes/Prototype.unity
     guid: c3c11b355f6a89647b40a3c0b29585b0
+=======
+>>>>>>> b804c25e6c9c56774a81d4ad5e1f9908bbf30e8a
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

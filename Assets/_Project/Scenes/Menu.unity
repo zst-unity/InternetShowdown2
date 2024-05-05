@@ -5567,7 +5567,11 @@ MonoBehaviour:
   autoStartServerBuild: 0
   autoConnectClientBuild: 0
   offlineScene: Assets/_Project/Scenes/Menu.unity
+<<<<<<< HEAD
   onlineScene: Assets/_Project/Scenes/Prototype.unity
+=======
+  onlineScene: Assets/_Project/Scenes/Lobby.unity
+>>>>>>> b804c25e6c9c56774a81d4ad5e1f9908bbf30e8a
   transport: {fileID: 1239500910}
   networkAddress: localhost
   maxConnections: 100
