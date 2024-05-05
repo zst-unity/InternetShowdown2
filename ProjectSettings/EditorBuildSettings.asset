@@ -11,8 +11,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/Scenes/Lobby.unity
     guid: 1e9a40e0a6f072f48afb41b0c515366a
-  - enabled: 1
-    path: Assets/_Project/Scenes/Prototype.unity
-    guid: 3d7bc098bbfdeaf47ba4761425d416f8
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
