@@ -1446,6 +1446,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 826e5049baecae443b21cb5cc382fcbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rendererData: {fileID: 11400000, guid: e634585d5c4544dd297acaee93dc2beb, type: 2}
+  _volumeProfile: {fileID: 11400000, guid: 7cc4d9ad645fad540ac1df0854c02e92, type: 2}
+  _renderPipelineAsset: {fileID: 11400000, guid: e1260c1148f6143b28bae5ace5e9c5d1,
+    type: 2}
   _speedlines: {fileID: 2100000, guid: fd5abf64dd8fd8549a4cf7a9ed44aae9, type: 2}
 --- !u!4 &1475952380
 Transform:
