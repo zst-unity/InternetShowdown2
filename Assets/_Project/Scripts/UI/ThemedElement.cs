@@ -1,38 +1,23 @@
-using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace InternetShowdown.UI
 {
     [ExecuteInEditMode]
-    public class ThemedElement : MonoBehaviour
+    public abstract class ThemedElement : MonoBehaviour
     {
-        [SerializeField] private Graphic _target;
-
-        [Space(9)]
         public Theme theme;
-        public ThemeColor color;
-        public int level;
 
-        private void OnValidate()
+        protected virtual void OnUpdate() { }
+
+        protected virtual void OnValidate()
         {
-            if (!_target)
-            {
-                if (TryGetComponent(out Graphic target))
-                {
-                    _target = target;
-                }
-                else throw new ArgumentException("Missing target");
-            }
-            if (!theme) throw new ArgumentException("Missing theme");
+            if (!theme) Debug.LogWarning("Missing theme");
         }
 
         public void Update()
         {
-            if (!theme || !_target) return;
-
-            var targetColor = theme.GetColor(color, level);
-            _target.color = targetColor;
+            if (!theme) return;
+            OnUpdate();
         }
     }
 }
