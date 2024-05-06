@@ -985,6 +985,32 @@ MonoBehaviour:
   _tiltAmount: 2.5
   _bobbingAmount: 2.5
   _bobbingSpeed: 15
+  _jumpBobAmount: 7
+  _jumpBobTime: 0.2
+  _jumpBobCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2.8541481
+      outSlope: 2.8541481
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.036414567
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!54 &2797917308810744708
 Rigidbody:
   m_ObjectHideFlags: 0

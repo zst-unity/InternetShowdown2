@@ -29,6 +29,13 @@ namespace InternetShowdown.Players
         private float _tiltVelocity;
         private float _speedlinesAlpha;
 
+        [SerializeField, Min(0)] private float _jumpBobAmount = 7f;
+        [SerializeField] private float _jumpBobTime = 0.2f;
+        [SerializeField] private AnimationCurve _jumpBobCurve;
+        private float _jumpBob;
+        private float _jumpBobReturn;
+        private float _jumpBobTimer;
+
         protected override void OnStart()
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -51,6 +58,8 @@ namespace InternetShowdown.Players
 
             InitializeCameras();
             InitializeInputs();
+
+            _jumpBobTimer = _jumpBobTime;
         }
 
         private void InitializeCameras()
@@ -88,9 +97,10 @@ namespace InternetShowdown.Players
             _cameraRotX = Mathf.Clamp(_cameraRotX - input.y, -90f, 90f);
 
             TiltCamera();
+            CalculateJumpBob();
 
             _orientation.localRotation = Quaternion.Euler(0f, _cameraRotY, 0f);
-            Camera.main.transform.localRotation = Quaternion.Euler(_cameraRotX, 0f, _cameraRotZ);
+            Camera.main.transform.localRotation = Quaternion.Euler(_cameraRotX - _jumpBob, 0f, _cameraRotZ);
 
             _speedlinesAlpha = Mathf.Lerp(_speedlinesAlpha, _state == PlayerState.Dash ? 1 : 0, Time.deltaTime * 2f);
             _speedlinesMaterial.SetFloat("_Alpha", _speedlinesAlpha);
@@ -109,6 +119,26 @@ namespace InternetShowdown.Players
                 currentVelocity: ref _tiltVelocity,
                 smoothTime: _tiltSmoothing
             );
+        }
+
+        private void CalculateJumpBob()
+        {
+            if (_jumpBobTimer < _jumpBobTime)
+            {
+                _jumpBobTimer += Time.deltaTime;
+                var value = _jumpBobCurve.Evaluate(_jumpBobTimer / _jumpBobTime);
+                _jumpBob = _jumpBobReturn - _jumpBobAmount * value * (1f - (Mathf.Abs(_cameraRotX) / 90f));
+            }
+            else
+            {
+                _jumpBob = Mathf.Lerp(_jumpBob, 0f, Time.deltaTime);
+                _jumpBobReturn = _jumpBob;
+            }
+        }
+
+        protected override void OnJump()
+        {
+            _jumpBobTimer = 0f;
         }
 
         private void OnDestroy()

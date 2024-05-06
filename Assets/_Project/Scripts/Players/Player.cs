@@ -93,6 +93,8 @@ namespace InternetShowdown.Players
         protected virtual void OnStart() { }
         protected virtual void OnUpdate() { }
 
+        protected virtual void OnJump() { }
+
         private int _animatorDirX;
         private int _animatorDirY;
         private int _animatorInAir;
@@ -299,6 +301,7 @@ namespace InternetShowdown.Players
         {
             _yVelocity = _jumpForce;
             _jumpAudio.PlaySFX(transform.position, true);
+            OnJump();
         }
 
         protected void TryStartDash()
