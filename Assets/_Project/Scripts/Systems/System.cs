@@ -9,11 +9,17 @@ namespace InternetShowdown.Systems
         public static T Singleton => (T)_singleton;
 
         protected virtual void OnStartup() { }
+        protected virtual void OnStop() { }
         protected virtual void OnUpdate() { }
 
         private void Update()
         {
             OnUpdate();
+        }
+
+        private void OnDestroy()
+        {
+            OnStop();
         }
 
         private void Awake()
@@ -44,11 +50,17 @@ namespace InternetShowdown.Systems
 #endif
 
         protected virtual void OnStartup() { }
+        protected virtual void OnStop() { }
         protected virtual void OnUpdate() { }
 
         private void Update()
         {
             OnUpdate();
+        }
+
+        private void OnDestroy()
+        {
+            OnStop();
         }
 
         private void Awake()
