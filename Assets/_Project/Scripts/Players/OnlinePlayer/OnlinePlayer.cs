@@ -102,7 +102,8 @@ namespace InternetShowdown.Players
             _orientation.localRotation = Quaternion.Euler(0f, _cameraRotY, 0f);
             Camera.main.transform.localRotation = Quaternion.Euler(_cameraRotX - _jumpBob, 0f, _cameraRotZ);
 
-            _speedlinesAlpha = Mathf.Lerp(_speedlinesAlpha, _state == PlayerState.Dash ? 1 : 0, Time.deltaTime * 2f);
+            var speedlinesTargetAlpha = _state == PlayerState.Dash ? Mathf.Clamp01((1f - Mathf.Abs(_cameraRotX) / 90f) * 2) : 0;
+            _speedlinesAlpha = Mathf.Lerp(_speedlinesAlpha, speedlinesTargetAlpha, Time.deltaTime * 2f);
             _speedlinesMaterial.SetFloat("_Alpha", _speedlinesAlpha);
 
             var targetFov = _restFov + new Vector2(_rigidbody.velocity.x, _rigidbody.velocity.z).magnitude * 2.5f;
