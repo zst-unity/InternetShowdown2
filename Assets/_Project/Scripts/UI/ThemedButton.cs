@@ -71,7 +71,7 @@ namespace InternetShowdown.UI
             public Graphic target;
 
             [Header("Transition")]
-            public float duration = 0.15f;
+            public float duration = 0.1f;
             public Ease ease = Ease.InOutSine;
 
             [Header("Properties")]
