@@ -45,6 +45,7 @@ namespace InternetShowdown.UI
         Text,
         Primary,
         Secondary,
-        Accent
+        Accent,
+        Custom
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using UnityEditor;
 using UnityEngine;
 
 namespace InternetShowdown.UI
@@ -17,7 +18,24 @@ namespace InternetShowdown.UI
             if (!_second) throw new ArgumentException("Missing second element");
         }
 
-        private void Update()
+#if UNITY_EDITOR
+        private void OnEnable()
+        {
+            ObjectChangeEvents.changesPublished += ChangesPublished;
+        }
+
+        private void OnDisable()
+        {
+            ObjectChangeEvents.changesPublished -= ChangesPublished;
+        }
+
+        private void ChangesPublished(ref ObjectChangeEventStream stream)
+        {
+            UpdateComponent();
+        }
+#endif
+
+        public void UpdateComponent()
         {
             if (!_first || !_second) return;
 

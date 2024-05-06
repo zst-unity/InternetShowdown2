@@ -7,60 +7,79 @@ using DG.Tweening.Core;
 using DG.Tweening.Plugins.Options;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using NaughtyAttributes;
+using System.Linq;
 
 namespace InternetShowdown.UI
 {
     public class ThemedButton : ThemedElement, IPointerEnterHandler, IPointerExitHandler
     {
-        public List<ThemedButtonTarget> _targets;
-        private TweenerCore<Color, Color, ColorOptions> _colorTween;
+        public List<GraphicProperties> normalProperties = new();
+        public List<GraphicProperties> hoverProperties = new();
 
         protected override void OnUpdate()
         {
-            base.OnUpdate();
+            ValidateProperties(normalProperties);
+            ValidateProperties(hoverProperties);
+
+            foreach (var prop in normalProperties)
+            {
+                if (!prop.target) continue;
+                prop.target.color = prop.themeColor == ThemeColor.Custom ? prop.customColor : theme.GetColor(prop.themeColor, prop.level);
+            }
+        }
+
+        private void ValidateProperties(List<GraphicProperties> properties)
+        {
+            foreach (var prop1 in properties)
+            {
+                if (!prop1.target) Debug.LogWarning($"Missing target graphic for properties");
+
+                var count = properties.Count(prop2 => prop2.target == prop1.target);
+                if (count > 1)
+                {
+                    Debug.LogWarning($"Found multiple properties for {prop1.target.name}");
+                }
+            }
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-
+            TweenProperties(hoverProperties);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-
+            TweenProperties(normalProperties);
         }
-    }
 
-    [Serializable]
-    public class ThemedButtonTarget
-    {
-        public Graphic _target;
-        [Header("States")]
-        public ThemedButtonState normalState = new();
-        public ThemedButtonState hoverState = new();
-    }
+        private void TweenProperties(List<GraphicProperties> properties)
+        {
+            foreach (var prop in properties)
+            {
+                if (!prop.target) continue;
 
-    [Serializable]
-    public class ThemedButtonState
-    {
-        public ThemeColor color = ThemeColor.Primary;
-        public int level = 0;
-        public Vector2 scale = Vector2.one;
-        public Vector2 offset = Vector2.zero;
+                var targetColor = prop.themeColor == ThemeColor.Custom ? prop.customColor : theme.GetColor(prop.themeColor, prop.level);
+                prop.colorTween.Kill();
+                prop.colorTween = prop.target.DOColor(targetColor, prop.duration).SetEase(prop.ease);
+            }
+        }
 
-        [Space(9)]
-        public ThemedButtonTransition colorTransition = new();
-        public ThemedButtonTransition scaleTransition = new();
-        public ThemedButtonTransition offsetTransition = new();
+        [Serializable]
+        public class GraphicProperties
+        {
+            public Graphic target;
 
-        [Space(9)]
-        public UnityEvent onEnter = new();
-    }
+            [Header("Transition")]
+            public float duration = 0.15f;
+            public Ease ease = Ease.InOutSine;
 
-    [Serializable]
-    public class ThemedButtonTransition
-    {
-        public float duration = 0.2f;
-        public Ease ease = Ease.InOutSine;
+            [Header("Properties")]
+            public ThemeColor themeColor;
+            [ShowIf(nameof(themeColor), ThemeColor.Custom), AllowNesting] public Color customColor = Color.white;
+            [HideIf(nameof(themeColor), ThemeColor.Custom), AllowNesting] public int level;
+
+            internal TweenerCore<Color, Color, ColorOptions> colorTween;
+        }
     }
 }

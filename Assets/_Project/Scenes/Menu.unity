@@ -208,40 +208,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theme: {fileID: 11400000, guid: cae438e9f0c906a49a4e096a83e3a37d, type: 2}
-  normalState:
-    color: 0
-    level: -1
-    scale: {x: 1, y: 1}
-    offset: {x: 0, y: 0}
-    colorTransition:
-      duration: 0.2
-      ease: 4
-    scaleTransition:
-      duration: 0.2
-      ease: 4
-    offsetTransition:
-      duration: 0.2
-      ease: 4
-    onEnter:
-      m_PersistentCalls:
-        m_Calls: []
-  hoverState:
-    color: 2
-    level: 0
-    scale: {x: 1, y: 1}
-    offset: {x: 0, y: 0}
-    colorTransition:
-      duration: 0.2
-      ease: 4
-    scaleTransition:
-      duration: 0.2
-      ease: 4
-    offsetTransition:
-      duration: 0.2
-      ease: 4
-    onEnter:
-      m_PersistentCalls:
-        m_Calls: []
+  normalProperties: []
+  hoverProperties: []
 --- !u!1 &250273451
 GameObject:
   m_ObjectHideFlags: 0
@@ -792,7 +760,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theme: {fileID: 11400000, guid: cae438e9f0c906a49a4e096a83e3a37d, type: 2}
   _target: {fileID: 784535577}
-  color: 0
+  themeColor: 0
+  customColor: {r: 0, g: 0, b: 0, a: 0}
   level: 0
 --- !u!1 &791762430
 GameObject:
@@ -805,7 +774,6 @@ GameObject:
   - component: {fileID: 791762431}
   - component: {fileID: 791762433}
   - component: {fileID: 791762432}
-  - component: {fileID: 791762434}
   m_Layer: 5
   m_Name: X
   m_TagString: Untagged
@@ -870,22 +838,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 791762430}
   m_CullTransparentMesh: 1
---- !u!114 &791762434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 791762430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 793761222cfd30c439fc186a7bc902ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  theme: {fileID: 11400000, guid: cae438e9f0c906a49a4e096a83e3a37d, type: 2}
-  _target: {fileID: 791762432}
-  color: 0
-  level: 1
 --- !u!1 &934262997
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,7 +1323,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theme: {fileID: 11400000, guid: cae438e9f0c906a49a4e096a83e3a37d, type: 2}
   _target: {fileID: 1344331137}
-  color: 0
+  themeColor: 0
+  customColor: {r: 0, g: 0, b: 0, a: 0}
   level: 1
 --- !u!1 &1422359414
 GameObject:
@@ -1462,40 +1415,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theme: {fileID: 11400000, guid: cae438e9f0c906a49a4e096a83e3a37d, type: 2}
-  normalState:
-    color: 0
-    level: -1
-    scale: {x: 1, y: 1}
-    offset: {x: 0, y: 0}
-    colorTransition:
-      duration: 0.2
-      ease: 4
-    scaleTransition:
-      duration: 0.2
-      ease: 4
-    offsetTransition:
-      duration: 0.2
-      ease: 4
-    onEnter:
-      m_PersistentCalls:
-        m_Calls: []
-  hoverState:
-    color: 2
-    level: 0
-    scale: {x: 1, y: 1}
-    offset: {x: 0, y: 0}
-    colorTransition:
-      duration: 0.2
-      ease: 4
-    scaleTransition:
-      duration: 0.2
-      ease: 4
-    offsetTransition:
-      duration: 0.2
-      ease: 4
-    onEnter:
-      m_PersistentCalls:
-        m_Calls: []
+  normalProperties: []
+  hoverProperties: []
 --- !u!1 &1504180418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,7 +1469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.17171124, g: 0.18978609, b: 0.19882354, a: 1}
+  m_Color: {r: 0.37898394, g: 0.41887698, b: 0.43882355, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1586,40 +1507,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theme: {fileID: 11400000, guid: cae438e9f0c906a49a4e096a83e3a37d, type: 2}
-  normalState:
-    color: 0
-    level: -1
-    scale: {x: 1, y: 1}
-    offset: {x: 0, y: 0}
-    colorTransition:
-      duration: 0.2
-      ease: 4
-    scaleTransition:
-      duration: 0.2
-      ease: 4
-    offsetTransition:
-      duration: 0.2
-      ease: 4
-    onEnter:
-      m_PersistentCalls:
-        m_Calls: []
-  hoverState:
-    color: 2
+  normalProperties:
+  - target: {fileID: 1504180420}
+    duration: 0.15
+    ease: 4
+    themeColor: 0
+    customColor: {r: 0, g: 0, b: 0, a: 0}
+    level: 3
+  - target: {fileID: 791762432}
+    duration: 0.15
+    ease: 4
+    themeColor: 0
+    customColor: {r: 0, g: 0, b: 0, a: 0}
+    level: 1
+  hoverProperties:
+  - target: {fileID: 1504180420}
+    duration: 0.15
+    ease: 4
+    themeColor: 0
+    customColor: {r: 0, g: 0, b: 0, a: 0}
     level: 0
-    scale: {x: 1, y: 1}
-    offset: {x: 0, y: 0}
-    colorTransition:
-      duration: 0.2
-      ease: 4
-    scaleTransition:
-      duration: 0.2
-      ease: 4
-    offsetTransition:
-      duration: 0.2
-      ease: 4
-    onEnter:
-      m_PersistentCalls:
-        m_Calls: []
+  - target: {fileID: 791762432}
+    duration: 0.15
+    ease: 4
+    themeColor: 2
+    customColor: {r: 0, g: 0, b: 0, a: 0}
+    level: 0
 --- !u!1 &1551671817
 GameObject:
   m_ObjectHideFlags: 0
@@ -1709,40 +1622,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theme: {fileID: 11400000, guid: cae438e9f0c906a49a4e096a83e3a37d, type: 2}
-  normalState:
-    color: 0
-    level: -1
-    scale: {x: 1, y: 1}
-    offset: {x: 0, y: 0}
-    colorTransition:
-      duration: 0.2
-      ease: 4
-    scaleTransition:
-      duration: 0.2
-      ease: 4
-    offsetTransition:
-      duration: 0.2
-      ease: 4
-    onEnter:
-      m_PersistentCalls:
-        m_Calls: []
-  hoverState:
-    color: 2
-    level: 0
-    scale: {x: 1, y: 1}
-    offset: {x: 0, y: 0}
-    colorTransition:
-      duration: 0.2
-      ease: 4
-    scaleTransition:
-      duration: 0.2
-      ease: 4
-    offsetTransition:
-      duration: 0.2
-      ease: 4
-    onEnter:
-      m_PersistentCalls:
-        m_Calls: []
+  normalProperties: []
+  hoverProperties: []
 --- !u!1 &1623130496
 GameObject:
   m_ObjectHideFlags: 0
@@ -1897,40 +1778,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theme: {fileID: 11400000, guid: cae438e9f0c906a49a4e096a83e3a37d, type: 2}
-  normalState:
-    color: 0
-    level: -1
-    scale: {x: 1, y: 1}
-    offset: {x: 0, y: 0}
-    colorTransition:
-      duration: 0.2
-      ease: 4
-    scaleTransition:
-      duration: 0.2
-      ease: 4
-    offsetTransition:
-      duration: 0.2
-      ease: 4
-    onEnter:
-      m_PersistentCalls:
-        m_Calls: []
-  hoverState:
-    color: 2
-    level: 0
-    scale: {x: 1, y: 1}
-    offset: {x: 0, y: 0}
-    colorTransition:
-      duration: 0.2
-      ease: 4
-    scaleTransition:
-      duration: 0.2
-      ease: 4
-    offsetTransition:
-      duration: 0.2
-      ease: 4
-    onEnter:
-      m_PersistentCalls:
-        m_Calls: []
+  normalProperties: []
+  hoverProperties: []
 --- !u!1 &1851891582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1966,7 +1815,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7.5, y: 0}
+  m_AnchoredPosition: {x: -7.499939, y: 0}
   m_SizeDelta: {x: -45, y: -60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1851891584
@@ -2021,7 +1870,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theme: {fileID: 11400000, guid: cae438e9f0c906a49a4e096a83e3a37d, type: 2}
   _target: {fileID: 1851891584}
-  color: 0
+  themeColor: 0
+  customColor: {r: 0, g: 0, b: 0, a: 0}
   level: -1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

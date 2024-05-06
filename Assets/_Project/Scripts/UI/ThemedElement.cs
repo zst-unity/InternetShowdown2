@@ -1,22 +1,46 @@
+using UnityEditor;
 using UnityEngine;
 
 namespace InternetShowdown.UI
 {
-    [ExecuteInEditMode]
+    [ExecuteAlways]
     public abstract class ThemedElement : MonoBehaviour
     {
         public Theme theme;
 
         protected virtual void OnUpdate() { }
 
-        protected virtual void OnValidate()
+        private void OnValidate()
         {
-            if (!theme) Debug.LogWarning("Missing theme");
+            if (!theme)
+            {
+                Debug.LogWarning("Missing theme");
+                return;
+            }
         }
 
-        public void Update()
+#if UNITY_EDITOR
+        private void OnEnable()
         {
-            if (!theme) return;
+            ObjectChangeEvents.changesPublished += ChangesPublished;
+        }
+
+        private void OnDisable()
+        {
+            ObjectChangeEvents.changesPublished -= ChangesPublished;
+        }
+
+        private void ChangesPublished(ref ObjectChangeEventStream stream)
+        {
+            for (int i = 0; i < stream.length; ++i)
+            {
+                UpdateElement();
+            }
+        }
+#endif
+
+        public void UpdateElement()
+        {
             OnUpdate();
         }
     }
