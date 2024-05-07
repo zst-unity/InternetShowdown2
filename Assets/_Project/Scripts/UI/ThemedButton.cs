@@ -8,6 +8,7 @@ using DG.Tweening.Plugins.Options;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Linq;
+using Sirenix.OdinInspector;
 
 namespace InternetShowdown.UI
 {
@@ -75,8 +76,8 @@ namespace InternetShowdown.UI
 
             [Header("Properties")]
             public ThemeColor themeColor;
-            public Color customColor = Color.white;
-            public int level;
+            [ShowIf(nameof(themeColor), ThemeColor.Custom)] public Color customColor = Color.white;
+            [HideIf(nameof(themeColor), ThemeColor.Custom)] public int level;
 
             internal TweenerCore<Color, Color, ColorOptions> colorTween;
         }

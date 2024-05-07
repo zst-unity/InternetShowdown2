@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,8 +9,8 @@ namespace InternetShowdown.UI
         [Space(9)]
         public Graphic _target;
         public ThemeColor themeColor;
-        public Color customColor = Color.white;
-        public int level;
+        [ShowIf(nameof(themeColor), ThemeColor.Custom)] public Color customColor = Color.white;
+        [HideIf(nameof(themeColor), ThemeColor.Custom)] public int level;
 
         protected override void OnUpdate()
         {
