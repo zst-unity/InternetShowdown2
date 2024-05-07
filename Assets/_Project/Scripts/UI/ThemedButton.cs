@@ -74,6 +74,8 @@ namespace InternetShowdown.UI
 
         public void OnPointerUp(PointerEventData eventData)
         {
+            if (State == ThemedButtonState.Normal) return;
+
             State = ThemedButtonState.Hovered;
             TweenProperties(hoverParameters);
 
