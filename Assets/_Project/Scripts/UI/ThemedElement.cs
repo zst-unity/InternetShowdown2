@@ -42,6 +42,7 @@ namespace InternetShowdown.UI
 
         public void UpdateElement()
         {
+            if (!theme) return;
             OnUpdate();
         }
     }

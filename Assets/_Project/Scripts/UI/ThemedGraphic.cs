@@ -6,8 +6,8 @@ namespace InternetShowdown.UI
 {
     public class ThemedGraphic : ThemedElement
     {
-        [Space(9)]
-        public Graphic _target;
+        [field: Space(9)]
+        [field: SerializeField] public Graphic Target { get; private set; }
         public ThemeColor themeColor;
         [ShowIf(nameof(themeColor), ThemeColor.Custom)] public Color customColor = Color.white;
         [HideIf(nameof(themeColor), ThemeColor.Custom)] public int level;
@@ -15,16 +15,16 @@ namespace InternetShowdown.UI
 
         protected override void OnUpdate()
         {
-            if (!_target)
+            if (!Target)
             {
-                if (TryGetComponent(out Graphic graphic)) _target = graphic;
+                if (TryGetComponent(out Graphic graphic)) Target = graphic;
                 else Debug.LogWarning("Missing target graphic");
             }
 
-            if (!_target) return;
+            if (!Target) return;
 
             var targetColor = themeColor == ThemeColor.Custom ? customColor : theme.GetColor(themeColor, level, alpha);
-            _target.color = targetColor;
+            Target.color = targetColor;
         }
     }
 }
