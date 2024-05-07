@@ -24,14 +24,14 @@ namespace InternetShowdown.UI
             Both = Horizontal | Vertical
         }
 
-        private RectTransform _selfRectTransform;
+        private RectTransform _rectTransform;
 
         protected virtual float MinX
         {
             get
             {
                 if ((ControlAxes & Mode.Horizontal) != 0) return MinSize.x;
-                return _selfRectTransform.rect.width - Padding.x;
+                return _rectTransform.rect.width - Padding.x;
             }
         }
         protected virtual float MinY
@@ -39,7 +39,7 @@ namespace InternetShowdown.UI
             get
             {
                 if ((ControlAxes & Mode.Vertical) != 0) return MinSize.y;
-                return _selfRectTransform.rect.height - Padding.y;
+                return _rectTransform.rect.height - Padding.y;
             }
         }
         protected virtual float MaxX
@@ -47,7 +47,7 @@ namespace InternetShowdown.UI
             get
             {
                 if ((ControlAxes & Mode.Horizontal) != 0) return MaxSize.x;
-                return _selfRectTransform.rect.width - Padding.x;
+                return _rectTransform.rect.width - Padding.x;
             }
         }
         protected virtual float MaxY
@@ -55,7 +55,7 @@ namespace InternetShowdown.UI
             get
             {
                 if ((ControlAxes & Mode.Vertical) != 0) return MaxSize.y;
-                return _selfRectTransform.rect.height - Padding.y;
+                return _rectTransform.rect.height - Padding.y;
             }
         }
 
@@ -76,7 +76,7 @@ namespace InternetShowdown.UI
 
                 if ((ControlAxes & Mode.Horizontal) != 0)
                 {
-                    _selfRectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, widestPreferredSize.x);
+                    _rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, widestPreferredSize.x);
                     if (ResizeTextObject)
                     {
                         text.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, preferredSize.x);
@@ -84,7 +84,7 @@ namespace InternetShowdown.UI
                 }
                 if ((ControlAxes & Mode.Vertical) != 0)
                 {
-                    _selfRectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, widestPreferredSize.y);
+                    _rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, widestPreferredSize.y);
                     if (ResizeTextObject)
                     {
                         text.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, preferredSize.y);
@@ -93,12 +93,16 @@ namespace InternetShowdown.UI
             }
         }
 
-#if UNITY_EDITOR
         private void OnEnable()
         {
+            _rectTransform = GetComponent<RectTransform>();
+
+#if UNITY_EDITOR
             ObjectChangeEvents.changesPublished += ChangesPublished;
+#endif
         }
 
+#if UNITY_EDITOR
         private void OnDisable()
         {
             ObjectChangeEvents.changesPublished -= ChangesPublished;
