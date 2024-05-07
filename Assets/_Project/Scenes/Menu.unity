@@ -612,6 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5acac28c47ee7d04ea9ee75f9f3705f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rendererData: {fileID: 11400000, guid: e634585d5c4544dd297acaee93dc2beb, type: 2}
 --- !u!114 &675600766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -628,7 +629,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 511
 --- !u!114 &675600767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2081,7 +2082,19 @@ MonoBehaviour:
       m_Calls: []
   onRelease:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 675600765}
+        m_TargetAssemblyTypeName: InternetShowdown.Menu.MenuManager, Assembly-CSharp
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onHoverEnter:
     m_PersistentCalls:
       m_Calls: []
