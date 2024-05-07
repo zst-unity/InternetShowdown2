@@ -71,6 +71,7 @@
         "Mathf",
         "pixelize",
         "Raycast",
+        "Raycasts",
         "Rigidbody",
         "rolloff",
         "Scriptable",
