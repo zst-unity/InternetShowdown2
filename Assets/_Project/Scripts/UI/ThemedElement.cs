@@ -1,10 +1,11 @@
+using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
 
 namespace InternetShowdown.UI
 {
     [ExecuteAlways]
-    public abstract class ThemedElement : MonoBehaviour
+    public abstract class ThemedElement : SerializedMonoBehaviour
     {
         public Theme theme;
 

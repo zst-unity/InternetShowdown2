@@ -14,62 +14,63 @@ namespace InternetShowdown.UI
 {
     public class ThemedButton : ThemedElement, IPointerEnterHandler, IPointerExitHandler
     {
-        public List<GraphicProperties> normalProperties = new();
-        public List<GraphicProperties> hoverProperties = new();
+        public Dictionary<Graphic, GraphicStateParameters> normalParameters = new();
+        public Dictionary<Graphic, GraphicStateParameters> hoverParameters = new();
+
+        public ThemedButtonState State { get; private set; }
 
         protected override void OnUpdate()
         {
-            ValidateProperties(normalProperties);
-            ValidateProperties(hoverProperties);
+            ValidateParameters(normalParameters);
+            ValidateParameters(hoverParameters);
 
-            foreach (var prop in normalProperties)
+            if (State != ThemedButtonState.Normal) return;
+            foreach (var (target, parameters) in normalParameters)
             {
-                if (!prop.target) continue;
-                prop.target.color = prop.themeColor == ThemeColor.Custom ? prop.customColor : theme.GetColor(prop.themeColor, prop.level);
+                if (!target) continue;
+                target.color = parameters.themeColor == ThemeColor.Custom ? parameters.customColor : theme.GetColor(parameters.themeColor, parameters.level);
+                target.rectTransform.localScale = parameters.scale;
             }
         }
 
-        private void ValidateProperties(List<GraphicProperties> properties)
+        private void ValidateParameters(Dictionary<Graphic, GraphicStateParameters> parametersPairs)
         {
-            foreach (var prop1 in properties)
+            foreach (var pair in parametersPairs)
             {
-                if (!prop1.target) Debug.LogWarning($"Missing target graphic for properties");
-
-                var count = properties.Count(prop2 => prop2.target == prop1.target);
-                if (count > 1)
-                {
-                    Debug.LogWarning($"Found multiple properties for {prop1.target.name}");
-                }
+                if (!pair.Key) Debug.LogWarning($"Missing target graphic for properties");
             }
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            TweenProperties(hoverProperties);
+            State = ThemedButtonState.Hovered;
+            TweenProperties(hoverParameters);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            TweenProperties(normalProperties);
+            State = ThemedButtonState.Normal;
+            TweenProperties(normalParameters);
         }
 
-        private void TweenProperties(List<GraphicProperties> properties)
+        private void TweenProperties(Dictionary<Graphic, GraphicStateParameters> parametersPairs)
         {
-            foreach (var prop in properties)
+            foreach (var (target, parameters) in parametersPairs)
             {
-                if (!prop.target) continue;
+                if (!target) continue;
 
-                var targetColor = prop.themeColor == ThemeColor.Custom ? prop.customColor : theme.GetColor(prop.themeColor, prop.level);
-                prop.colorTween.Kill();
-                prop.colorTween = prop.target.DOColor(targetColor, prop.duration).SetEase(prop.ease);
+                var targetColor = parameters.themeColor == ThemeColor.Custom ? parameters.customColor : theme.GetColor(parameters.themeColor, parameters.level);
+                parameters.colorTween.Kill();
+                parameters.colorTween = target.DOColor(targetColor, parameters.duration).SetEase(parameters.ease);
+
+                parameters.scaleTween.Kill();
+                parameters.scaleTween = target.rectTransform.DOScale(parameters.scale, parameters.duration).SetEase(parameters.ease);
             }
         }
 
         [Serializable]
-        public class GraphicProperties
+        public class GraphicStateParameters
         {
-            public Graphic target;
-
             [Header("Transition")]
             public float duration = 0.1f;
             public Ease ease = Ease.InOutSine;
@@ -78,8 +79,16 @@ namespace InternetShowdown.UI
             public ThemeColor themeColor;
             [ShowIf(nameof(themeColor), ThemeColor.Custom)] public Color customColor = Color.white;
             [HideIf(nameof(themeColor), ThemeColor.Custom)] public int level;
+            public Vector2 scale = Vector2.one;
 
             internal TweenerCore<Color, Color, ColorOptions> colorTween;
+            internal TweenerCore<Vector3, Vector3, VectorOptions> scaleTween;
         }
+    }
+
+    public enum ThemedButtonState
+    {
+        Normal,
+        Hovered,
     }
 }
