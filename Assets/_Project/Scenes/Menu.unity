@@ -252,7 +252,39 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: pressedParameters
+      Entry: 7
+      Data: 3|System.Collections.Generic.Dictionary`2[[UnityEngine.UI.Graphic, UnityEngine.UI],[InternetShowdown.UI.ThemedButton+GraphicStateParameters,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 4|System.Collections.Generic.ObjectEqualityComparer`1[[UnityEngine.UI.Graphic,
+        UnityEngine.UI]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   theme: {fileID: 11400000, guid: cae438e9f0c906a49a4e096a83e3a37d, type: 2}
+  onPress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &250273451
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,7 +421,7 @@ MonoBehaviour:
     jitterScale: 1
     mipBias: 0
     varianceClampScale: 0.9
-    contrastAdaptiveSharpening: 0
+    contrastAdaptiveSharpening: 1
 --- !u!1 &522803930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1520,7 +1552,39 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: pressedParameters
+      Entry: 7
+      Data: 3|System.Collections.Generic.Dictionary`2[[UnityEngine.UI.Graphic, UnityEngine.UI],[InternetShowdown.UI.ThemedButton+GraphicStateParameters,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 4|System.Collections.Generic.ObjectEqualityComparer`1[[UnityEngine.UI.Graphic,
+        UnityEngine.UI]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   theme: {fileID: 11400000, guid: cae438e9f0c906a49a4e096a83e3a37d, type: 2}
+  onPress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1475952378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1934,7 +1998,96 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: pressedParameters
+      Entry: 7
+      Data: 7|System.Collections.Generic.Dictionary`2[[UnityEngine.UI.Graphic, UnityEngine.UI],[InternetShowdown.UI.ThemedButton+GraphicStateParameters,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 8|System.Collections.Generic.ObjectEqualityComparer`1[[UnityEngine.UI.Graphic,
+        UnityEngine.UI]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 9|InternetShowdown.UI.ThemedButton+GraphicStateParameters, Assembly-CSharp
+    - Name: duration
+      Entry: 4
+      Data: 0.02
+    - Name: ease
+      Entry: 3
+      Data: 4
+    - Name: themeColor
+      Entry: 3
+      Data: 0
+    - Name: customColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: level
+      Entry: 3
+      Data: 1
+    - Name: scale
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   theme: {fileID: 11400000, guid: cae438e9f0c906a49a4e096a83e3a37d, type: 2}
+  onPress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1551671817
 GameObject:
   m_ObjectHideFlags: 0
@@ -2068,7 +2221,39 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: pressedParameters
+      Entry: 7
+      Data: 3|System.Collections.Generic.Dictionary`2[[UnityEngine.UI.Graphic, UnityEngine.UI],[InternetShowdown.UI.ThemedButton+GraphicStateParameters,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 4|System.Collections.Generic.ObjectEqualityComparer`1[[UnityEngine.UI.Graphic,
+        UnityEngine.UI]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   theme: {fileID: 11400000, guid: cae438e9f0c906a49a4e096a83e3a37d, type: 2}
+  onPress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1623130496
 GameObject:
   m_ObjectHideFlags: 0
@@ -2267,7 +2452,39 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: pressedParameters
+      Entry: 7
+      Data: 3|System.Collections.Generic.Dictionary`2[[UnityEngine.UI.Graphic, UnityEngine.UI],[InternetShowdown.UI.ThemedButton+GraphicStateParameters,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 4|System.Collections.Generic.ObjectEqualityComparer`1[[UnityEngine.UI.Graphic,
+        UnityEngine.UI]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   theme: {fileID: 11400000, guid: cae438e9f0c906a49a4e096a83e3a37d, type: 2}
+  onPress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1851891582
 GameObject:
   m_ObjectHideFlags: 0

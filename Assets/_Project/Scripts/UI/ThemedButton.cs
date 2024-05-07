@@ -7,15 +7,22 @@ using DG.Tweening.Core;
 using DG.Tweening.Plugins.Options;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using System.Linq;
 using Sirenix.OdinInspector;
 
 namespace InternetShowdown.UI
 {
-    public class ThemedButton : ThemedElement, IPointerEnterHandler, IPointerExitHandler
+    public class ThemedButton : ThemedElement, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
     {
+        [Header("Parameters")]
         public Dictionary<Graphic, GraphicStateParameters> normalParameters = new();
         public Dictionary<Graphic, GraphicStateParameters> hoverParameters = new();
+        public Dictionary<Graphic, GraphicStateParameters> pressedParameters = new();
+
+        [Header("Events")]
+        public UnityEvent onPress = new();
+        public UnityEvent onRelease = new();
+        public UnityEvent onHoverEnter = new();
+        public UnityEvent onHoverExit = new();
 
         public ThemedButtonState State { get; private set; }
 
@@ -45,12 +52,32 @@ namespace InternetShowdown.UI
         {
             State = ThemedButtonState.Hovered;
             TweenProperties(hoverParameters);
+
+            onHoverEnter.Invoke();
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
             State = ThemedButtonState.Normal;
             TweenProperties(normalParameters);
+
+            onHoverExit.Invoke();
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            State = ThemedButtonState.Pressed;
+            TweenProperties(pressedParameters);
+
+            onPress.Invoke();
+        }
+
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            State = ThemedButtonState.Hovered;
+            TweenProperties(hoverParameters);
+
+            onRelease.Invoke();
         }
 
         private void TweenProperties(Dictionary<Graphic, GraphicStateParameters> parametersPairs)
@@ -90,5 +117,6 @@ namespace InternetShowdown.UI
     {
         Normal,
         Hovered,
+        Pressed
     }
 }
