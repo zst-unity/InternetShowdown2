@@ -11,27 +11,32 @@ using Sirenix.OdinInspector;
 
 namespace InternetShowdown.UI
 {
-    public class ThemedButton : ThemedElement, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
+    public class ThemedInteractable : ThemedElement, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler, ISelectHandler, IDeselectHandler
     {
+        public bool selectable;
+
         [Header("Parameters")]
         public Dictionary<Graphic, GraphicStateParameters> normalParameters = new();
         public Dictionary<Graphic, GraphicStateParameters> hoverParameters = new();
         public Dictionary<Graphic, GraphicStateParameters> pressedParameters = new();
+        [ShowIf("selectable")] public Dictionary<Graphic, GraphicStateParameters> selectedParameters = new();
 
         [Header("Events")]
         public UnityEvent onPress = new();
         public UnityEvent onRelease = new();
         public UnityEvent onHoverEnter = new();
         public UnityEvent onHoverExit = new();
+        [ShowIf("selectable")] public UnityEvent onSelect = new();
+        [ShowIf("selectable")] public UnityEvent onDeselect = new();
 
-        public ThemedButtonState State { get; private set; }
+        public ThemedInteractableState State { get; private set; }
 
         protected override void OnUpdate()
         {
             ValidateParameters(normalParameters);
             ValidateParameters(hoverParameters);
 
-            if (State != ThemedButtonState.Normal) return;
+            if (State != ThemedInteractableState.Normal) return;
             foreach (var (target, parameters) in normalParameters)
             {
                 if (!target) continue;
@@ -50,7 +55,7 @@ namespace InternetShowdown.UI
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            State = ThemedButtonState.Hovered;
+            State = ThemedInteractableState.Hovered;
             TweenProperties(hoverParameters);
 
             onHoverEnter.Invoke();
@@ -58,7 +63,7 @@ namespace InternetShowdown.UI
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            State = ThemedButtonState.Normal;
+            State = ThemedInteractableState.Normal;
             TweenProperties(normalParameters);
 
             onHoverExit.Invoke();
@@ -66,7 +71,7 @@ namespace InternetShowdown.UI
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            State = ThemedButtonState.Pressed;
+            State = ThemedInteractableState.Pressed;
             TweenProperties(pressedParameters);
 
             onPress.Invoke();
@@ -74,12 +79,39 @@ namespace InternetShowdown.UI
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            if (State == ThemedButtonState.Normal) return;
+            if (State == ThemedInteractableState.Normal) return;
 
-            State = ThemedButtonState.Hovered;
+            State = ThemedInteractableState.Hovered;
             TweenProperties(hoverParameters);
 
             onRelease.Invoke();
+
+            if (!selectable) return;
+
+            if (eventData.button == PointerEventData.InputButton.Left)
+            {
+                EventSystem.current.SetSelectedGameObject(gameObject, eventData);
+            }
+        }
+
+        public void OnSelect(BaseEventData eventData)
+        {
+            if (!selectable) return;
+
+            State = ThemedInteractableState.Selected;
+            TweenProperties(selectedParameters);
+
+            onSelect.Invoke();
+        }
+
+        public void OnDeselect(BaseEventData eventData)
+        {
+            if (!selectable) return;
+
+            State = ThemedInteractableState.Normal;
+            TweenProperties(normalParameters);
+
+            onDeselect.Invoke();
         }
 
         private void TweenProperties(Dictionary<Graphic, GraphicStateParameters> parametersPairs)
@@ -116,10 +148,11 @@ namespace InternetShowdown.UI
         }
     }
 
-    public enum ThemedButtonState
+    public enum ThemedInteractableState
     {
         Normal,
         Hovered,
-        Pressed
+        Pressed,
+        Selected
     }
 }
