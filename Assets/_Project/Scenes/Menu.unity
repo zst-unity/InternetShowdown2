@@ -813,7 +813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2753476, g: 0.30433154, b: 0.31882355, a: 1}
+  m_Color: {r: 0.22352941, g: 0.24705881, b: 0.25882354, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1518,7 +1518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.37898394, g: 0.41887698, b: 0.43882355, a: 1}
+  m_Color: {r: 0.2753476, g: 0.30433154, b: 0.31882355, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1562,13 +1562,13 @@ MonoBehaviour:
     ease: 4
     themeColor: 0
     customColor: {r: 0, g: 0, b: 0, a: 0}
-    level: 3
+    level: 1
   - target: {fileID: 791762432}
     duration: 0.1
     ease: 4
     themeColor: 0
     customColor: {r: 0, g: 0, b: 0, a: 0}
-    level: 1
+    level: 0
   hoverProperties:
   - target: {fileID: 1504180420}
     duration: 0.1
@@ -1581,7 +1581,7 @@ MonoBehaviour:
     ease: 4
     themeColor: 2
     customColor: {r: 0, g: 0, b: 0, a: 0}
-    level: 0
+    level: 2
 --- !u!1 &1551671817
 GameObject:
   m_ObjectHideFlags: 0
