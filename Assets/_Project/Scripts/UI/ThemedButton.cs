@@ -35,7 +35,7 @@ namespace InternetShowdown.UI
             foreach (var (target, parameters) in normalParameters)
             {
                 if (!target) continue;
-                target.color = parameters.themeColor == ThemeColor.Custom ? parameters.customColor : theme.GetColor(parameters.themeColor, parameters.level);
+                target.color = parameters.themeColor == ThemeColor.Custom ? parameters.customColor : theme.GetColor(parameters.themeColor, parameters.level, parameters.alpha);
                 target.rectTransform.localScale = parameters.scale;
             }
         }
@@ -86,7 +86,7 @@ namespace InternetShowdown.UI
             {
                 if (!target) continue;
 
-                var targetColor = parameters.themeColor == ThemeColor.Custom ? parameters.customColor : theme.GetColor(parameters.themeColor, parameters.level);
+                var targetColor = parameters.themeColor == ThemeColor.Custom ? parameters.customColor : theme.GetColor(parameters.themeColor, parameters.level, parameters.alpha);
                 parameters.colorTween.Kill();
                 parameters.colorTween = target.DOColor(targetColor, parameters.duration).SetEase(parameters.ease);
 
@@ -106,6 +106,7 @@ namespace InternetShowdown.UI
             public ThemeColor themeColor;
             [ShowIf(nameof(themeColor), ThemeColor.Custom)] public Color customColor = Color.white;
             [HideIf(nameof(themeColor), ThemeColor.Custom)] public int level;
+            [HideIf(nameof(themeColor), ThemeColor.Custom), Range(0f, 1f)] public float alpha = 1f;
             public Vector2 scale = Vector2.one;
 
             internal TweenerCore<Color, Color, ColorOptions> colorTween;

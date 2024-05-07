@@ -17,7 +17,7 @@ namespace InternetShowdown.UI
         [Range(-1f, 1f)] public float saturationShift = 0f;
         [Range(-1f, 1f)] public float valueShift = 0.06f;
 
-        public Color GetColor(ThemeColor color, int level)
+        public Color GetColor(ThemeColor color, int level, float alpha)
         {
             var origColor = color switch
             {
@@ -35,7 +35,8 @@ namespace InternetShowdown.UI
             var newSaturation = origSaturation + saturationShift * level;
             var newValue = origValue + valueShift * level;
 
-            return Color.HSVToRGB(newHue, newSaturation, newValue);
+            var output = Color.HSVToRGB(newHue, newSaturation, newValue);
+            return new(output.r, output.g, output.b, alpha);
         }
     }
 

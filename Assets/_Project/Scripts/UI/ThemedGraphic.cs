@@ -11,6 +11,7 @@ namespace InternetShowdown.UI
         public ThemeColor themeColor;
         [ShowIf(nameof(themeColor), ThemeColor.Custom)] public Color customColor = Color.white;
         [HideIf(nameof(themeColor), ThemeColor.Custom)] public int level;
+        [HideIf(nameof(themeColor), ThemeColor.Custom), Range(0f, 1f)] public float alpha = 1f;
 
         protected override void OnUpdate()
         {
@@ -22,7 +23,7 @@ namespace InternetShowdown.UI
 
             if (!_target) return;
 
-            var targetColor = themeColor == ThemeColor.Custom ? customColor : theme.GetColor(themeColor, level);
+            var targetColor = themeColor == ThemeColor.Custom ? customColor : theme.GetColor(themeColor, level, alpha);
             _target.color = targetColor;
         }
     }

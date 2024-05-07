@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.17171124, g: 0.18978609, b: 0.19882354, a: 1}
+  m_Color: {r: 0.17171124, g: 0.18978609, b: 0.19882354, a: 0.8}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 5
+  m_PixelsPerUnitMultiplier: 8
 --- !u!222 &73266402
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -210,7 +210,8 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 73266401}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -229,7 +230,67 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
       Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 2|InternetShowdown.UI.ThemedButton+GraphicStateParameters, Assembly-CSharp
+    - Name: duration
+      Entry: 4
+      Data: 0.1
+    - Name: ease
+      Entry: 3
+      Data: 4
+    - Name: themeColor
+      Entry: 3
+      Data: 0
+    - Name: customColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: level
+      Entry: 3
+      Data: -1
+    - Name: alpha
+      Entry: 4
+      Data: 0.8
+    - Name: scale
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -238,14 +299,74 @@ MonoBehaviour:
       Data: 
     - Name: hoverParameters
       Entry: 7
-      Data: 2|System.Collections.Generic.Dictionary`2[[UnityEngine.UI.Graphic, UnityEngine.UI],[InternetShowdown.UI.ThemedButton+GraphicStateParameters,
+      Data: 3|System.Collections.Generic.Dictionary`2[[UnityEngine.UI.Graphic, UnityEngine.UI],[InternetShowdown.UI.ThemedButton+GraphicStateParameters,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 9
       Data: 1
     - Name: 
       Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
       Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 4|InternetShowdown.UI.ThemedButton+GraphicStateParameters, Assembly-CSharp
+    - Name: duration
+      Entry: 4
+      Data: 0.1
+    - Name: ease
+      Entry: 3
+      Data: 4
+    - Name: themeColor
+      Entry: 3
+      Data: 0
+    - Name: customColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: level
+      Entry: 3
+      Data: -1
+    - Name: alpha
+      Entry: 4
+      Data: 0.9
+    - Name: scale
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -254,11 +375,11 @@ MonoBehaviour:
       Data: 
     - Name: pressedParameters
       Entry: 7
-      Data: 3|System.Collections.Generic.Dictionary`2[[UnityEngine.UI.Graphic, UnityEngine.UI],[InternetShowdown.UI.ThemedButton+GraphicStateParameters,
+      Data: 5|System.Collections.Generic.Dictionary`2[[UnityEngine.UI.Graphic, UnityEngine.UI],[InternetShowdown.UI.ThemedButton+GraphicStateParameters,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 4|System.Collections.Generic.ObjectEqualityComparer`1[[UnityEngine.UI.Graphic,
+      Data: 6|System.Collections.Generic.ObjectEqualityComparer`1[[UnityEngine.UI.Graphic,
         UnityEngine.UI]], mscorlib
     - Name: 
       Entry: 8
@@ -662,7 +783,7 @@ Canvas:
   m_GameObject: {fileID: 675600764}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 250273453}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -671,7 +792,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 7
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -739,7 +860,6 @@ GameObject:
   - component: {fileID: 784535578}
   - component: {fileID: 784535577}
   - component: {fileID: 784535576}
-  - component: {fileID: 784535579}
   m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
@@ -796,8 +916,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.22352941, g: 0.24705881, b: 0.25882354, a: 1}
+  m_Material: {fileID: 2100000, guid: 3b883842a6272124f982eff0f36b48c2, type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -822,32 +942,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 784535574}
   m_CullTransparentMesh: 1
---- !u!114 &784535579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 784535574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 793761222cfd30c439fc186a7bc902ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  theme: {fileID: 11400000, guid: cae438e9f0c906a49a4e096a83e3a37d, type: 2}
-  _target: {fileID: 784535577}
-  themeColor: 0
-  customColor: {r: 0, g: 0, b: 0, a: 0}
-  level: 0
 --- !u!1 &791762430
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,7 +992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.22352941, g: 0.24705881, b: 0.25882354, a: 1}
+  m_Color: {r: 0.11989305, g: 0.13251336, b: 0.13882354, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1369,7 +1463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2753476, g: 0.30433154, b: 0.31882355, a: 1}
+  m_Color: {r: 0.11989305, g: 0.13251336, b: 0.13882354, a: 0.9}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1419,7 +1513,8 @@ MonoBehaviour:
   _target: {fileID: 1344331137}
   themeColor: 0
   customColor: {r: 0, g: 0, b: 0, a: 0}
-  level: 1
+  level: -2
+  alpha: 0.9
 --- !u!1 &1422359414
 GameObject:
   m_ObjectHideFlags: 0
@@ -1471,7 +1566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.17171124, g: 0.18978609, b: 0.19882354, a: 1}
+  m_Color: {r: 0.17171124, g: 0.18978609, b: 0.19882354, a: 0.8}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1487,7 +1582,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 5
+  m_PixelsPerUnitMultiplier: 8
 --- !u!222 &1422359417
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1511,7 +1606,8 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 1422359416}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -1530,7 +1626,67 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
       Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 2|InternetShowdown.UI.ThemedButton+GraphicStateParameters, Assembly-CSharp
+    - Name: duration
+      Entry: 4
+      Data: 0.1
+    - Name: ease
+      Entry: 3
+      Data: 4
+    - Name: themeColor
+      Entry: 3
+      Data: 0
+    - Name: customColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: level
+      Entry: 3
+      Data: -1
+    - Name: alpha
+      Entry: 4
+      Data: 0.8
+    - Name: scale
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -1539,14 +1695,74 @@ MonoBehaviour:
       Data: 
     - Name: hoverParameters
       Entry: 7
-      Data: 2|System.Collections.Generic.Dictionary`2[[UnityEngine.UI.Graphic, UnityEngine.UI],[InternetShowdown.UI.ThemedButton+GraphicStateParameters,
+      Data: 3|System.Collections.Generic.Dictionary`2[[UnityEngine.UI.Graphic, UnityEngine.UI],[InternetShowdown.UI.ThemedButton+GraphicStateParameters,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 9
       Data: 1
     - Name: 
       Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
       Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 4|InternetShowdown.UI.ThemedButton+GraphicStateParameters, Assembly-CSharp
+    - Name: duration
+      Entry: 4
+      Data: 0.1
+    - Name: ease
+      Entry: 3
+      Data: 4
+    - Name: themeColor
+      Entry: 3
+      Data: 0
+    - Name: customColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: level
+      Entry: 3
+      Data: -1
+    - Name: alpha
+      Entry: 4
+      Data: 0.9
+    - Name: scale
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -1555,11 +1771,11 @@ MonoBehaviour:
       Data: 
     - Name: pressedParameters
       Entry: 7
-      Data: 3|System.Collections.Generic.Dictionary`2[[UnityEngine.UI.Graphic, UnityEngine.UI],[InternetShowdown.UI.ThemedButton+GraphicStateParameters,
+      Data: 5|System.Collections.Generic.Dictionary`2[[UnityEngine.UI.Graphic, UnityEngine.UI],[InternetShowdown.UI.ThemedButton+GraphicStateParameters,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 4|System.Collections.Generic.ObjectEqualityComparer`1[[UnityEngine.UI.Graphic,
+      Data: 6|System.Collections.Generic.ObjectEqualityComparer`1[[UnityEngine.UI.Graphic,
         UnityEngine.UI]], mscorlib
     - Name: 
       Entry: 8
@@ -1687,7 +1903,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2753476, g: 0.30433154, b: 0.31882355, a: 1}
+  m_Color: {r: 0.11989305, g: 0.13251336, b: 0.13882354, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1787,7 +2003,10 @@ MonoBehaviour:
       Data: 
     - Name: level
       Entry: 3
-      Data: 1
+      Data: -2
+    - Name: alpha
+      Entry: 4
+      Data: 0
     - Name: scale
       Entry: 7
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
@@ -1844,7 +2063,10 @@ MonoBehaviour:
       Data: 
     - Name: level
       Entry: 3
-      Data: 0
+      Data: -2
+    - Name: alpha
+      Entry: 4
+      Data: 1
     - Name: scale
       Entry: 7
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
@@ -1917,7 +2139,10 @@ MonoBehaviour:
       Data: 
     - Name: level
       Entry: 3
-      Data: 2
+      Data: -2
+    - Name: alpha
+      Entry: 4
+      Data: 1
     - Name: scale
       Entry: 7
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
@@ -1953,7 +2178,7 @@ MonoBehaviour:
       Data: 4
     - Name: themeColor
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: customColor
       Entry: 7
       Data: UnityEngine.Color, UnityEngine.CoreModule
@@ -1974,7 +2199,10 @@ MonoBehaviour:
       Data: 
     - Name: level
       Entry: 3
-      Data: -1
+      Data: 2
+    - Name: alpha
+      Entry: 4
+      Data: 1
     - Name: scale
       Entry: 7
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
@@ -2052,6 +2280,9 @@ MonoBehaviour:
     - Name: level
       Entry: 3
       Data: 1
+    - Name: alpha
+      Entry: 4
+      Data: 0
     - Name: scale
       Entry: 7
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
@@ -2152,7 +2383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.17171124, g: 0.18978609, b: 0.19882354, a: 1}
+  m_Color: {r: 0.17171124, g: 0.18978609, b: 0.19882354, a: 0.8}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2168,7 +2399,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 5
+  m_PixelsPerUnitMultiplier: 8
 --- !u!222 &1551671820
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2192,7 +2423,8 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 1551671819}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -2211,7 +2443,67 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
       Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 2|InternetShowdown.UI.ThemedButton+GraphicStateParameters, Assembly-CSharp
+    - Name: duration
+      Entry: 4
+      Data: 0.1
+    - Name: ease
+      Entry: 3
+      Data: 4
+    - Name: themeColor
+      Entry: 3
+      Data: 0
+    - Name: customColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: level
+      Entry: 3
+      Data: -1
+    - Name: alpha
+      Entry: 4
+      Data: 0.8
+    - Name: scale
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -2220,14 +2512,74 @@ MonoBehaviour:
       Data: 
     - Name: hoverParameters
       Entry: 7
-      Data: 2|System.Collections.Generic.Dictionary`2[[UnityEngine.UI.Graphic, UnityEngine.UI],[InternetShowdown.UI.ThemedButton+GraphicStateParameters,
+      Data: 3|System.Collections.Generic.Dictionary`2[[UnityEngine.UI.Graphic, UnityEngine.UI],[InternetShowdown.UI.ThemedButton+GraphicStateParameters,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 9
       Data: 1
     - Name: 
       Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
       Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 4|InternetShowdown.UI.ThemedButton+GraphicStateParameters, Assembly-CSharp
+    - Name: duration
+      Entry: 4
+      Data: 0.1
+    - Name: ease
+      Entry: 3
+      Data: 4
+    - Name: themeColor
+      Entry: 3
+      Data: 0
+    - Name: customColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: level
+      Entry: 3
+      Data: -1
+    - Name: alpha
+      Entry: 4
+      Data: 0.9
+    - Name: scale
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -2236,11 +2588,11 @@ MonoBehaviour:
       Data: 
     - Name: pressedParameters
       Entry: 7
-      Data: 3|System.Collections.Generic.Dictionary`2[[UnityEngine.UI.Graphic, UnityEngine.UI],[InternetShowdown.UI.ThemedButton+GraphicStateParameters,
+      Data: 5|System.Collections.Generic.Dictionary`2[[UnityEngine.UI.Graphic, UnityEngine.UI],[InternetShowdown.UI.ThemedButton+GraphicStateParameters,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 4|System.Collections.Generic.ObjectEqualityComparer`1[[UnityEngine.UI.Graphic,
+      Data: 6|System.Collections.Generic.ObjectEqualityComparer`1[[UnityEngine.UI.Graphic,
         UnityEngine.UI]], mscorlib
     - Name: 
       Entry: 8
@@ -2383,7 +2735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.17171124, g: 0.18978609, b: 0.19882354, a: 1}
+  m_Color: {r: 0.17171124, g: 0.18978609, b: 0.19882354, a: 0.8}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2399,7 +2751,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 5
+  m_PixelsPerUnitMultiplier: 8
 --- !u!222 &1806577178
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2423,7 +2775,8 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 1806577177}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -2442,7 +2795,67 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
       Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 2|InternetShowdown.UI.ThemedButton+GraphicStateParameters, Assembly-CSharp
+    - Name: duration
+      Entry: 4
+      Data: 0.1
+    - Name: ease
+      Entry: 3
+      Data: 4
+    - Name: themeColor
+      Entry: 3
+      Data: 0
+    - Name: customColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: level
+      Entry: 3
+      Data: -1
+    - Name: alpha
+      Entry: 4
+      Data: 0.8
+    - Name: scale
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -2451,14 +2864,74 @@ MonoBehaviour:
       Data: 
     - Name: hoverParameters
       Entry: 7
-      Data: 2|System.Collections.Generic.Dictionary`2[[UnityEngine.UI.Graphic, UnityEngine.UI],[InternetShowdown.UI.ThemedButton+GraphicStateParameters,
+      Data: 3|System.Collections.Generic.Dictionary`2[[UnityEngine.UI.Graphic, UnityEngine.UI],[InternetShowdown.UI.ThemedButton+GraphicStateParameters,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 9
       Data: 1
     - Name: 
       Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
       Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 4|InternetShowdown.UI.ThemedButton+GraphicStateParameters, Assembly-CSharp
+    - Name: duration
+      Entry: 4
+      Data: 0.1
+    - Name: ease
+      Entry: 3
+      Data: 4
+    - Name: themeColor
+      Entry: 3
+      Data: 0
+    - Name: customColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: level
+      Entry: 3
+      Data: -1
+    - Name: alpha
+      Entry: 4
+      Data: 0.9
+    - Name: scale
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -2467,11 +2940,11 @@ MonoBehaviour:
       Data: 
     - Name: pressedParameters
       Entry: 7
-      Data: 3|System.Collections.Generic.Dictionary`2[[UnityEngine.UI.Graphic, UnityEngine.UI],[InternetShowdown.UI.ThemedButton+GraphicStateParameters,
+      Data: 5|System.Collections.Generic.Dictionary`2[[UnityEngine.UI.Graphic, UnityEngine.UI],[InternetShowdown.UI.ThemedButton+GraphicStateParameters,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 4|System.Collections.Generic.ObjectEqualityComparer`1[[UnityEngine.UI.Graphic,
+      Data: 6|System.Collections.Generic.ObjectEqualityComparer`1[[UnityEngine.UI.Graphic,
         UnityEngine.UI]], mscorlib
     - Name: 
       Entry: 8
@@ -2549,7 +3022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.17171124, g: 0.18978609, b: 0.19882354, a: 1}
+  m_Color: {r: 0.17171124, g: 0.18978609, b: 0.19882354, a: 0.8}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2565,7 +3038,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 5
+  m_PixelsPerUnitMultiplier: 8
 --- !u!222 &1851891585
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2600,6 +3073,7 @@ MonoBehaviour:
   themeColor: 0
   customColor: {r: 0, g: 0, b: 0, a: 0}
   level: -1
+  alpha: 0.8
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
