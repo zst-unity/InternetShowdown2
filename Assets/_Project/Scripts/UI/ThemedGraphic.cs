@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using NaughtyAttributes;
 
 namespace InternetShowdown.UI
 {
@@ -9,8 +8,8 @@ namespace InternetShowdown.UI
         [Space(9)]
         public Graphic _target;
         public ThemeColor themeColor;
-        [ShowIf(nameof(themeColor), ThemeColor.Custom), AllowNesting] public Color customColor = Color.white;
-        [HideIf(nameof(themeColor), ThemeColor.Custom), AllowNesting] public int level;
+        public Color customColor = Color.white;
+        public int level;
 
         protected override void OnUpdate()
         {

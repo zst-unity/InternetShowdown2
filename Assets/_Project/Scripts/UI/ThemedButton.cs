@@ -7,7 +7,6 @@ using DG.Tweening.Core;
 using DG.Tweening.Plugins.Options;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using NaughtyAttributes;
 using System.Linq;
 
 namespace InternetShowdown.UI
@@ -76,8 +75,8 @@ namespace InternetShowdown.UI
 
             [Header("Properties")]
             public ThemeColor themeColor;
-            [ShowIf(nameof(themeColor), ThemeColor.Custom), AllowNesting] public Color customColor = Color.white;
-            [HideIf(nameof(themeColor), ThemeColor.Custom), AllowNesting] public int level;
+            public Color customColor = Color.white;
+            public int level;
 
             internal TweenerCore<Color, Color, ColorOptions> colorTween;
         }
