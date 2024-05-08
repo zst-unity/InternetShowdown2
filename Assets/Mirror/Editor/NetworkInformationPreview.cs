@@ -7,6 +7,11 @@ namespace Mirror
     [CustomPreview(typeof(GameObject))]
     class NetworkInformationPreview : ObjectPreview
     {
+        private void OnDisable()
+        {
+            Cleanup();
+        }
+
         struct NetworkIdentityInfo
         {
             public GUIContent name;
@@ -22,40 +27,85 @@ namespace Mirror
 
         class Styles
         {
-            public GUIStyle labelStyle = new GUIStyle(EditorStyles.label);
-            public GUIStyle componentName = new GUIStyle(EditorStyles.boldLabel);
-            public GUIStyle disabledName = new GUIStyle(EditorStyles.miniLabel);
+            public GUIStyle labelStyle = new LazyGUIStyle(() =>
+            {
+                try
+                {
+                    var style = new GUIStyle(EditorStyles.label);
+                    return style;
+                }
+                catch
+                {
+                    return null;
+                }
+            });
+
+            public GUIStyle componentName = new LazyGUIStyle(() =>
+            {
+                try
+                {
+                    var style = new GUIStyle(EditorStyles.boldLabel);
+                    return style;
+                }
+                catch
+                {
+                    return null;
+                }
+            });
+
+            public GUIStyle disabledName = new LazyGUIStyle(() =>
+            {
+                try
+                {
+                    var style = new GUIStyle(EditorStyles.miniLabel);
+                    return style;
+                }
+                catch
+                {
+                    return null;
+                }
+            });
 
             public Styles()
             {
                 Color fontColor = new Color(0.7f, 0.7f, 0.7f);
-                labelStyle.padding.right += 20;
-                labelStyle.normal.textColor = fontColor;
-                labelStyle.active.textColor = fontColor;
-                labelStyle.focused.textColor = fontColor;
-                labelStyle.hover.textColor = fontColor;
-                labelStyle.onNormal.textColor = fontColor;
-                labelStyle.onActive.textColor = fontColor;
-                labelStyle.onFocused.textColor = fontColor;
-                labelStyle.onHover.textColor = fontColor;
 
-                componentName.normal.textColor = fontColor;
-                componentName.active.textColor = fontColor;
-                componentName.focused.textColor = fontColor;
-                componentName.hover.textColor = fontColor;
-                componentName.onNormal.textColor = fontColor;
-                componentName.onActive.textColor = fontColor;
-                componentName.onFocused.textColor = fontColor;
-                componentName.onHover.textColor = fontColor;
+                if (labelStyle != null)
+                {
+                    labelStyle.padding.right += 20;
+                    labelStyle.normal.textColor = fontColor;
+                    labelStyle.active.textColor = fontColor;
+                    labelStyle.focused.textColor = fontColor;
+                    labelStyle.hover.textColor = fontColor;
+                    labelStyle.onNormal.textColor = fontColor;
+                    labelStyle.onActive.textColor = fontColor;
+                    labelStyle.onFocused.textColor = fontColor;
+                    labelStyle.onHover.textColor = fontColor;
+                }
 
-                disabledName.normal.textColor = fontColor;
-                disabledName.active.textColor = fontColor;
-                disabledName.focused.textColor = fontColor;
-                disabledName.hover.textColor = fontColor;
-                disabledName.onNormal.textColor = fontColor;
-                disabledName.onActive.textColor = fontColor;
-                disabledName.onFocused.textColor = fontColor;
-                disabledName.onHover.textColor = fontColor;
+                if (componentName != null)
+                {
+                    componentName.normal.textColor = fontColor;
+                    componentName.active.textColor = fontColor;
+                    componentName.focused.textColor = fontColor;
+                    componentName.hover.textColor = fontColor;
+                    componentName.onNormal.textColor = fontColor;
+                    componentName.onActive.textColor = fontColor;
+                    componentName.onFocused.textColor = fontColor;
+                    componentName.onHover.textColor = fontColor;
+                }
+
+                if (disabledName != null)
+                {
+                    disabledName.normal.textColor = fontColor;
+                    disabledName.active.textColor = fontColor;
+                    disabledName.focused.textColor = fontColor;
+                    disabledName.hover.textColor = fontColor;
+                    disabledName.onNormal.textColor = fontColor;
+                    disabledName.onActive.textColor = fontColor;
+                    disabledName.onFocused.textColor = fontColor;
+                    disabledName.onHover.textColor = fontColor;
+                }
             }
         }
 
@@ -226,14 +276,17 @@ namespace Mirror
             Vector2 maxLabelSize = Vector2.zero;
             foreach (NetworkBehaviourInfo behaviour in behavioursInfo)
             {
-                Vector2 labelSize = styles.labelStyle.CalcSize(behaviour.name);
-                if (maxLabelSize.x < labelSize.x)
+                if (styles.labelStyle != null)
                 {
-                    maxLabelSize.x = labelSize.x;
-                }
-                if (maxLabelSize.y < labelSize.y)
-                {
-                    maxLabelSize.y = labelSize.y;
+                    Vector2 labelSize = styles.labelStyle.CalcSize(behaviour.name);
+                    if (maxLabelSize.x < labelSize.x)
+                    {
+                        maxLabelSize.x = labelSize.x;
+                    }
+                    if (maxLabelSize.y < labelSize.y)
+                    {
+                        maxLabelSize.y = labelSize.y;
+                    }
                 }
             }
             return maxLabelSize;
@@ -300,6 +353,29 @@ namespace Mirror
                 name = new GUIContent(name),
                 value = new GUIContent((value ? "Yes" : "No"))
             };
+        }
+
+        public class LazyGUIStyle
+        {
+            private GUIStyle m_Style = null;
+            private System.Func<GUIStyle> m_Initializer;
+            public LazyGUIStyle(System.Func<GUIStyle> aInitializer)
+            {
+                m_Initializer = aInitializer;
+            }
+            public static implicit operator GUIStyle(LazyGUIStyle aStyle)
+            {
+                if (aStyle.m_Style == null)
+                {
+                    aStyle.m_Style = aStyle.m_Initializer();
+                    aStyle.m_Initializer = null;
+                }
+                return aStyle.m_Style;
+            }
+            public GUIStyle Style()
+            {
+                return this;
+            }
         }
     }
 }

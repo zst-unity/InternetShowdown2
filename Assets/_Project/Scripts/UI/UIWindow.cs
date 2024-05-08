@@ -13,6 +13,11 @@ namespace InternetShowdown.UI
             if (TryGetComponent(out CanvasGroup group)) CanvasGroup = group;
         }
 
+        private void Awake()
+        {
+            Set(false, false);
+        }
+
         public void Show(bool tween = true)
         {
             Set(true, tween);
@@ -28,6 +33,7 @@ namespace InternetShowdown.UI
             if (IsVisible == value) return;
 
             IsVisible = value;
+            CanvasGroup.alpha = value ? 1f : 0f;
             CanvasGroup.interactable = value;
             CanvasGroup.blocksRaycasts = value;
         }

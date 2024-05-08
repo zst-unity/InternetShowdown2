@@ -1,3 +1,4 @@
+using Mirror;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -32,6 +33,11 @@ namespace InternetShowdown.Menu
             {
                 rendererFeature.SetActive(true);
             }
+        }
+
+        public void Host()
+        {
+            NetworkManager.singleton.StartHost();
         }
 
         public void Quit()
