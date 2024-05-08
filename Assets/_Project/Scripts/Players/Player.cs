@@ -44,8 +44,10 @@ namespace InternetShowdown.Players
         [SerializeField] private AudioSystem.AudioProperties _jumpAudio;
         [SerializeField] protected float _jumpForce;
         [SerializeField] protected float _jumpBufferTime = 0.1f;
+        [SerializeField] protected float _jumpCoyoteTime = 0.1f;
 
         private float _jumpBufferTimer;
+        private float _jumpCoyoteTimer;
 
         [Header("Dash")]
         [SerializeField] protected float _dashForce;
@@ -126,6 +128,9 @@ namespace InternetShowdown.Players
             if (!isLocalPlayer) return;
             CheckGrounded();
 
+            if (_grounded) _jumpCoyoteTimer = _jumpCoyoteTime;
+            else if (_jumpCoyoteTimer > 0) _jumpCoyoteTimer -= Time.deltaTime;
+
             if (_grounded && _yVelocity <= 0 && _groundAngle <= _slopeAngleLimit) _yVelocity = 0;
             else if (_yVelocity > _gravityClamp) _yVelocity += _gravity * Time.deltaTime;
 
@@ -150,7 +155,7 @@ namespace InternetShowdown.Players
             _accelerationValue = _accelerationCurve.Evaluate(_accelerationTime / _accelerationDuration);
             _decelerationValue = _decelerationCurve.Evaluate(_decelerationTime / _decelerationDuration);
 
-            if (_jumpBufferTimer > 0 && _grounded)
+            if (_jumpBufferTimer > 0 && _jumpCoyoteTimer > 0)
             {
                 Jump();
                 _jumpBufferTimer = 0;
