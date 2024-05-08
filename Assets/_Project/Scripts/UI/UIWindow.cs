@@ -56,5 +56,11 @@ namespace InternetShowdown.UI
                 CanvasGroup.transform.localScale = Vector3.one * (value ? 1f : 1.1f);
             }
         }
+
+        private void OnDestroy()
+        {
+            _alphaTween.Kill();
+            _scaleTween.Kill();
+        }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using DG.Tweening;
 using Mirror;
 using UnityEngine;
@@ -32,10 +33,19 @@ namespace InternetShowdown.Systems
     public class AudioSystem : NetworkSystem<AudioSystem>
     {
         private AudioClip[] _audioClips;
+        private static readonly List<Tweener> _shakeTweens = new();
 
         protected override void OnStartup()
         {
             _audioClips = Resources.LoadAll<AudioClip>("Audio");
+        }
+
+        protected override void OnStop()
+        {
+            foreach (var tween in _shakeTweens)
+            {
+                tween.Kill();
+            }
         }
 
         public static void Play(AudioProperties audioProperties, Vector3 position, bool spatialize = true)
@@ -81,12 +91,14 @@ namespace InternetShowdown.Systems
 
             if (audioProperties.shake.x <= 0 || audioProperties.shake.y <= 0 || audioProperties.shake.z <= 0) return;
             Camera.main.DOComplete();
-            Camera.main.DOShakePosition
+            var tween = Camera.main.DOShakePosition
             (
                 duration: audioProperties.shake.x,
                 strength: (1 - Mathf.Clamp01(Vector3.Distance(Camera.main.transform.position, audioEffect.transform.position) / audioProperties.maxDistance)) * audioProperties.shake.y,
                 vibrato: (int)audioProperties.shake.z
             );
+
+            _shakeTweens.Add(tween);
         }
 
         public static void PlaySFX(AudioProperties audioProperties, Vector3 position, bool spatialize)

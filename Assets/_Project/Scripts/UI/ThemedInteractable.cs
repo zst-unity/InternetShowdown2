@@ -136,6 +136,23 @@ namespace InternetShowdown.UI
             }
         }
 
+        private void OnDestroy()
+        {
+            KillAllTweens(normalParameters);
+            KillAllTweens(hoverParameters);
+            KillAllTweens(pressedParameters);
+            KillAllTweens(selectedParameters);
+        }
+
+        private void KillAllTweens(Dictionary<Graphic, GraphicStateParameters> parametersPairs)
+        {
+            foreach (var pair in parametersPairs)
+            {
+                pair.Value.colorTween?.Kill();
+                pair.Value.scaleTween?.Kill();
+            }
+        }
+
         [Serializable]
         public class GraphicStateParameters
         {
