@@ -30,6 +30,7 @@ namespace InternetShowdown.UI
         [ShowIf("selectable")] public UnityEvent onDeselect = new();
 
         public ThemedInteractableState State { get; private set; }
+        private bool _hovering;
 
         protected override void OnUpdate()
         {
@@ -55,6 +56,9 @@ namespace InternetShowdown.UI
 
         public void OnPointerEnter(PointerEventData eventData)
         {
+            _hovering = true;
+
+            if (State == ThemedInteractableState.Selected) return;
             State = ThemedInteractableState.Hovered;
             TweenProperties(hoverParameters);
 
@@ -63,6 +67,9 @@ namespace InternetShowdown.UI
 
         public void OnPointerExit(PointerEventData eventData)
         {
+            _hovering = false;
+
+            if (State == ThemedInteractableState.Selected) return;
             State = ThemedInteractableState.Normal;
             TweenProperties(normalParameters);
 
@@ -71,6 +78,7 @@ namespace InternetShowdown.UI
 
         public void OnPointerDown(PointerEventData eventData)
         {
+            EventSystem.current.SetSelectedGameObject(null, eventData);
             State = ThemedInteractableState.Pressed;
             TweenProperties(pressedParameters);
 
@@ -79,19 +87,18 @@ namespace InternetShowdown.UI
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            if (State == ThemedInteractableState.Normal) return;
+            if (!_hovering) return;
+
+            if (eventData.button == PointerEventData.InputButton.Left && selectable)
+            {
+                EventSystem.current.SetSelectedGameObject(gameObject, eventData);
+                return;
+            }
 
             State = ThemedInteractableState.Hovered;
             TweenProperties(hoverParameters);
 
             onRelease.Invoke();
-
-            if (!selectable) return;
-
-            if (eventData.button == PointerEventData.InputButton.Left)
-            {
-                EventSystem.current.SetSelectedGameObject(gameObject, eventData);
-            }
         }
 
         public void OnSelect(BaseEventData eventData)

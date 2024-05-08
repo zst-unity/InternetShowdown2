@@ -1,12 +1,17 @@
 using Mirror;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
+using ZSToolkit.GlobalData;
 
 namespace InternetShowdown.Menu
 {
     public class MenuManager : MonoBehaviour
     {
         [SerializeField] private UniversalRendererData _rendererData;
+        [SerializeField] private TMP_InputField _IPAddressInputField;
+        [SerializeField] private TMP_InputField _PortInputField;
 
         private void Start()
         {
@@ -25,6 +30,9 @@ namespace InternetShowdown.Menu
             {
                 rendererFeature.SetActive(false);
             }
+
+            _IPAddressInputField.text = GlobalData.Load("MenuData", "IPAddress", "localhost");
+            _PortInputField.text = GlobalData.Load("MenuData", "Port", "7777");
         }
 
         private void OnDestroy()
@@ -40,9 +48,26 @@ namespace InternetShowdown.Menu
             NetworkManager.singleton.StartHost();
         }
 
+        public void Join()
+        {
+            NetworkManager.singleton.StartClient();
+        }
+
         public void Quit()
         {
             Application.Quit();
+        }
+
+        public void SetIPAddress(string text)
+        {
+            GlobalData.Save("MenuData", "IPAddress", text);
+            NetworkManager.singleton.networkAddress = text;
+        }
+
+        public void SetPort(string text)
+        {
+            GlobalData.Save("MenuData", "Port", text);
+            (NetworkManager.singleton.transport as PortTransport).Port = ushort.Parse(text);
         }
     }
 }

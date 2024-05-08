@@ -66,9 +66,11 @@
         "Dont",
         "Gamepad",
         "Gameped",
+        "globaldata",
         "Interactable",
         "Lerp",
         "Mathf",
+        "Newtonsoft",
         "pixelize",
         "Raycast",
         "Raycasts",
@@ -82,7 +84,9 @@
         "Tweening",
         "ассетов",
         "короч",
-        "плеймода"
+        "нахуй",
+        "плеймода",
+        "черножопым"
     ],
     "cSpell.language": "en,ru"
 }
