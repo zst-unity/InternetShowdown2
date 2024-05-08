@@ -2,6 +2,7 @@ using System.Collections;
 using InternetShowdown.Systems;
 using Mirror;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 namespace InternetShowdown.Players
 {

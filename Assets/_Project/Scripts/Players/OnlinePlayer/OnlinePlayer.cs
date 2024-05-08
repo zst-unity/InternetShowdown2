@@ -10,6 +10,7 @@ namespace InternetShowdown.Players
         [Header("Objects")]
         [SerializeField] private GameObject _mainCameraPrefab;
         [SerializeField] private Transform _cameraHolder;
+        [SerializeField] private Transform _headAimTarget;
         [SerializeField] private Material _speedlinesMaterial;
 
         [Header("Camera FOV")]
@@ -95,6 +96,7 @@ namespace InternetShowdown.Players
 
             _cameraRotY += input.x;
             _cameraRotX = Mathf.Clamp(_cameraRotX - input.y, -90f, 90f);
+            _headAimTarget.transform.localPosition = Vector3.back * (_cameraRotX / 90f * 5f);
 
             TiltCamera();
             CalculateJumpBob();
